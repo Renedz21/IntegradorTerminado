@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+#alerta{
+    width: 60%;
+}
+
+#contenido1{
+    font-family: 'Poppins', sans-serif;
+       
+}
+
+
+#buscar{
+    margin-left: 12%;
+}
+
+#content{
+    margin-left: 17%;
+    padding: 7px;
+    width: 50%;
+}
+
+#img1{
+    float: right;
+    margin-top: -23%;
+    width: 40%;
+}
+
+#imagen1{
+    width: 100%;
+}
+
+#boton{
+    border: transparent;
+    display: inline-block;
+    background: #ff523b;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 10px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+
+#boton:hover{
+    background-color: #F08A74;
+}
+
+.puntos{
+    text-align: center;
+    margin-left: 30%;
+    padding: 0.8%;
+}
+
+#navbar{
+    width: 100%;
+    margin-top: -4%;
+}
+
+#slide{
+    height: 105px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#form{
+    overflow: scroll;
+    
+}
+
+
+
+#icono{
+    color: wheat;
+    font-size: 27px;
+    padding: 5px;
+
+}
+
+
+#logo2{
+    width: 100%;
+    height: 100%;
+}
+
+
+#link{
+    border-color: transparent;
+    border:none;
+    margin-right: 5px;
+}
+
+#link:hover,#drop:hover{
+    background-color: #c11c49;
+    color: white;
+    border-color: transparent;
+    border:none;
+}
+
+#contenido2{
+    /*background:#ffffff url(imgs/fondo1.jpg) top center no-repeat fixed;*/
+    position: relative;
+    background: url(imgs/fondo2.jpg) fixed top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: opacity(75%);
+    padding: 3%;
+    
+}
+
+
+
+#titulo{
+    color: white;
+}
+
+
+
+#icono2{
+    width: 40px;
+    border: transparent;
+}
+
+#icono2:hover{
+    border: none;
+    background-color: white;
+}
+
+#ctn{
+    opacity: 1;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+.section{
+    float: right;
+    margin-top: -50%;
+    margin-right: 12%;
+}
+
+.section1{
+    float: right;
+    margin-top: -25%;
+    margin-right: 12%;
+}
+
+#link1{
+    text-decoration: none;
+    color:black;
+    font-size: 17px;
+    transition-property: text;
+    transition: 0.2s;
+}
+#link1:hover{
+    color: #E93326;
+}
+#ic{
+    font-size: 20px;
+}
+
+
+#ic:hover{
+    color: #B6433E;
+    text-decoration: none;
+}
+
+#card{
+    margin-left: 9.5%;
+    color: black;
+}
+#card2{
+    margin-left: 0;
+    margin-right: 2%;
+    color: black;
+}
+#card2:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s cubic-bezier(.55, .06, .68, .19);
+    text-decoration: none;
+}
+#card:hover, .card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.3s cubic-bezier(.55, .06, .68, .19);
+    text-decoration: none;
+}
+
+#card1:hover{
+    text-decoration: none;
+}
+
+#todo{
+    border: 1px solid green;
+}
+
+#producto{
+    max-width: 100%;
+    margin-left: -2%;
+    height: 370px;
+}
+#producto1-1{
+    width: 50%;
+    margin-left: 20%;
+}
+
+#centro{
+    margin-left: 25%;
+    margin-top: -11.2%;
+}
+
+#carti{
+    text-decoration: none;
+}
+
+#cartas{
+    margin-left: 9.5%;
+    width: 56.5%;
+
+}
+#for{
+    border: 1px solid black;
+    float: right;
+    width: 30%;
+    margin-top: -50px;
+    text-align: center;
+}
+#footer{
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+
+}
+
+
+#copyright{
+    margin-top: 12%;
+}
+
+#formulario{
+    background-color: #FDF7F7 !important;
+    box-shadow: 0px 0px 10px rgb(151 151 151 / 50%);
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 5%;
+
+}
+
+#sesion{
+    width: 40%;
+    padding: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left: 30%;
+    margin-top: 5%;
+}
+
+#titulo1{
+    background-color: #FFCC00;
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 2%;
+}
+#item1{
+    text-decoration: none;
+    color: #6CAEA0;
+}
+#item1:hover{
+    color: #295635;
+}
+
+.icon-group{
+    font-size: 35px;
+}
+#pay{
+    color: grey;
+}
+
+#pay:hover{
+    color: #B6433E;
+}
+
+
+.row{
+    margin-top: 3%;
+}
+
+#bread{
+    margin-top: 2%;
+    background-color: transparent;
+}
+
+.botones{
+    text-align: center;
+    margin-top: 10px;
+}
