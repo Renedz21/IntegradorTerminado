@@ -90,10 +90,6 @@
 
                 <input class="btn btn-info" type="submit" name="acc" value="Grabar">
                 <input class="btn btn-warning" type="submit" name="acc" value="Listar">
-                <input class="btn btn-success" type="submit" name="acc" value="Actualizar">
-                <input class="btn btn-secondary" type="submit" name="acc" value="Buscar">
-                <input class="btn btn-danger" type="submit" name="acc" value="Eliminar">
-                <input class="btn btn-primary" type="submit" name="acc" value="Limpiar">
 
                 <table class="table table-hover">
                     <thead>
