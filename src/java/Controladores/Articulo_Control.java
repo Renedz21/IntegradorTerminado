@@ -36,8 +36,11 @@ public class Articulo_Control extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("acc");
         
+        if (accion.equalsIgnoreCase("Entrar1")) {
+            request.getRequestDispatcher("AgregarArticulo.jsp").forward(request, response);
+        }
         if (accion.equalsIgnoreCase("Entrar2")) {
-            request.getRequestDispatcher("Mantenimiento_Articulos.jsp").forward(request, response);
+            request.getRequestDispatcher("ListarArticulo.jsp").forward(request, response);
         }
 
         if (accion.equalsIgnoreCase("Grabar")) {

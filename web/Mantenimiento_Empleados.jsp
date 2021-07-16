@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Mantenimiento_Empleados
-    Created on : 22/06/2021, 07:22:18 PM
-    Author     : Microsoft
---%>
-
 <%@page import="Controladores.Empleado_Presentador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

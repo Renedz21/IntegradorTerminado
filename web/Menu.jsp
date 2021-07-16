@@ -1,15 +1,8 @@
-<%-- 
-    Document   : Menu
-    Created on : 22/06/2021, 07:00:27 PM
-    Author     : Microsoft
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
         <title>Menu</title>
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,8 +28,6 @@
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
-
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
 
@@ -49,10 +40,10 @@
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#home-collapse" aria-expanded="true">
+                                data-bs-target="#home-collapse" aria-expanded="false">
                             Empleados
                         </button>
-                        <div class="collapse show" id="home-collapse">
+                        <div class="collapse " id="home-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <form action="Empleado_Control" method="post">
@@ -102,14 +93,14 @@
                         <div class="collapse" id="dashboard-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
                                             Agregar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar">
                                             Listar
                                         </button>
@@ -123,14 +114,14 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar4">
                                             Actualizar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar5">
                                             Eliminar
                                         </button>
@@ -147,15 +138,15 @@
                         <div class="collapse" id="orders-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-                                    <form action="Empleado_Control" method="post">
-                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                    <form action="Articulo_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar1">
                                             Agregar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
-                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar">
+                                    <form action="Articulo_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
                                             Listar
                                         </button>
                                     </form>

@@ -17,10 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Microsoft
- */
 @WebServlet(name = "Cliente_Control", urlPatterns = {"/Cliente_Control"})
 public class Cliente_Control extends HttpServlet {
     private Cliente_Presentador cliPer;
@@ -113,7 +109,6 @@ public class Cliente_Control extends HttpServlet {
             cliPer.setLista(lis);
         }
 
-        response.sendRedirect("Mantenimiento_Clientes.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
