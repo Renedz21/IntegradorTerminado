@@ -3,28 +3,33 @@
 }
 
 body{
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background: url("/imgs/fondo.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
 #alerta{
     width: 60%;
 }
 
-#contenido1{
+.navbar{
     font-family: 'Poppins', sans-serif;
-       
+    background-color: transparent;
 }
 
+.content{
+    background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
 
 #buscar{
     margin-left: 12%;
 }
 
-#content{
-    margin-left: 17%;
-    padding: 7px;
-    width: 50%;
-}
+
 
 #img1{
     float: right;
@@ -70,9 +75,20 @@ body{
 
 #form{
     overflow: scroll;
-    
+
 }
 
+.entrar{
+    padding: 5px;
+    margin: auto;
+    max-width: 100%;
+    margin-top: 5px;
+    margin-left: 25px;
+    font-size: .875rem;
+}
+.entrar:hover{
+    background-color: greenyellow;
+}
 
 
 #icono{
@@ -110,7 +126,7 @@ body{
     background-repeat: no-repeat;
     filter: opacity(75%);
     padding: 3%;
-    
+
 }
 
 

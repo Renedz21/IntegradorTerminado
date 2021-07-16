@@ -30,12 +30,40 @@ public class Cliente_Control extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("acc");
-
-        if (accion.equals("Entrarl")) {
-            cliPer = new Cliente_Presentador();
-            cliSer = (Cliente_Servicio) new Cliente_Servicio_Imp();
-            request.getSession().setAttribute("cliPer", cliPer);
+        
+        switch (accion) {
+            case "Entrar":
+                cliPer = new Cliente_Presentador();
+                cliSer = new Cliente_Servicio_Imp();
+                request.getSession().setAttribute("cliPer", cliPer);
+                response.sendRedirect("ListarCliente.jsp");
+                break;
+            case "Entrar2":
+                cliPer = new Cliente_Presentador();
+                cliSer = new Cliente_Servicio_Imp();
+                request.getSession().setAttribute("cliPer", cliPer);
+                response.sendRedirect("AgregarCliente.jsp");
+                break;
+            case "Entrar3":
+                cliPer = new Cliente_Presentador();
+                cliSer = new Cliente_Servicio_Imp();
+                request.getSession().setAttribute("cliPer", cliPer);
+                response.sendRedirect("BuscarCliente.jsp");
+                break;
+            case "Entrar4":
+                cliPer = new Cliente_Presentador();
+                cliSer = new Cliente_Servicio_Imp();
+                request.getSession().setAttribute("cliPer", cliPer);
+                response.sendRedirect("ActualizarCliente.jsp");
+                break;
+            /*case "Entrar5":
+                cliPer = new Cliente_Presentador();
+                cliSer = new Cliente_Servicio_Imp();
+                request.getSession().setAttribute("cliPer", cliPer);
+                response.sendRedirect("EliminarCliente.jsp");
+                break;*/
         }
+
 
         if (accion.equals("Grabar")) {
             int id = Integer.parseInt(request.getParameter("id"));

@@ -29,21 +29,57 @@ public class Empleado_Control extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-String accion = request.getParameter("acc");
-        if (accion.equals("Entrar")) {
-            empPre = new Empleado_Presentador();
-            empSer = new Empleado_Servicio_Imp();
-            request.getSession().setAttribute("empPre", empPre);
+
+        String accion = request.getParameter("acc");
+
+        switch (accion) {
+            case "Entrar":
+                empPre = new Empleado_Presentador();
+                empSer = new Empleado_Servicio_Imp();
+                request.getSession().setAttribute("empPre", empPre);
+                response.sendRedirect("ListarEmpleado.jsp");
+                break;
+            case "Entrar2":
+                empPre = new Empleado_Presentador();
+                empSer = new Empleado_Servicio_Imp();
+                request.getSession().setAttribute("empPre", empPre);
+                response.sendRedirect("AgregarEmpleado.jsp");
+                break;
+            case "Entrar3":
+                empPre = new Empleado_Presentador();
+                empSer = new Empleado_Servicio_Imp();
+                request.getSession().setAttribute("empPre", empPre);
+                response.sendRedirect("BuscarEmpleado.jsp");
+                break;
+            case "Entrar4":
+                empPre = new Empleado_Presentador();
+                empSer = new Empleado_Servicio_Imp();
+                request.getSession().setAttribute("empPre", empPre);
+                response.sendRedirect("ActualizarEmpleado.jsp");
+                break;
+            /*case "Entrar5":
+                empPre = new Empleado_Presentador();
+                empSer = new Empleado_Servicio_Imp();
+                request.getSession().setAttribute("empPre", empPre);
+                response.sendRedirect("EliminarEmpleado.jsp");
+                break;*/
+        }
+
+        switch (accion) {
+            case "Grabar":
+                String codigo = request.getParameter("cod");
+                String nombre = request.getParameter("name");
+                String correo = request.getParameter("mail");
+                String telefono = request.getParameter("telf");
+                String usuario = request.getParameter("usser");
+                String contraseña = request.getParameter("pass");
+                empPre.setMensaje(empSer.Grabar(codigo, nombre, correo, telefono, usuario, contraseña));
+                response.sendRedirect("AgregarEmpleado.jsp");
+                break;
         }
 
         if (accion.equals("Grabar")) {
-            String codigo = request.getParameter("cod");
-            String nombre = request.getParameter("name");
-            String correo = request.getParameter("mail");
-            String telefono = request.getParameter("telf");
-            String usuario = request.getParameter("usser");
-            String contraseña = request.getParameter("pass");
-            empPre.setMensaje(empSer.Grabar(codigo, nombre, correo, telefono, usuario, contraseña));
+
         }
 
         if (accion.equals("Actualizar")) {
@@ -70,6 +106,8 @@ String accion = request.getParameter("acc");
         }
         if (accion.equals("Listar")) {
             empPre.setLista(empSer.Listar());
+            response.sendRedirect("ListarEmpleado.jsp");
+
         }
         if (accion.equals("Limpiar")) {
             empPre.setMensaje("");
@@ -80,7 +118,6 @@ String accion = request.getParameter("acc");
             empPre.setLista(lis);
         }
 
-        response.sendRedirect("Mantenimiento_Empleados.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

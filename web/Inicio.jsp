@@ -16,13 +16,12 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     </head>
+    
     <body>
 
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light " id="contenido1">
-            <div class="encabezado">
-                <h3><a>Arti Center</a></h3>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#content" aria-controls="content" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="#">Arti Center</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -64,7 +63,7 @@
             <a class="ml-4" href="Inicio_Sesion.jsp">Iniciar Sesion</a>
         </nav>
 
-        <div class="jumbotron" id="contenido1">
+        <div class="jumbotron content">
             <div class="w-50" id="texto"> 
                 <h1 class="display-4">Lorem Ipsum</h1>
                 <p class="lead">This is a simple hero unit, a simple jumbotron-style component </p>

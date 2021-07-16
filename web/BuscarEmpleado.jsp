@@ -1,17 +1,10 @@
-<%-- 
-    Document   : Mantenimiento_Empleados
-    Created on : 22/06/2021, 07:22:18 PM
-    Author     : Microsoft
---%>
-
 <%@page import="Controladores.Empleado_Presentador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>Menu</title>
+        <title>Listar</title>
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -34,6 +27,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+
     </head>
     <body>
         <%Object[] fila = (Object[]) session.getAttribute("fila");%>
@@ -122,32 +116,23 @@
                         </div>
                     </li>
                 </ul>
+                 <script src="sidebars.js" type="text/javascript"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+            </script>
+                
             </div>
 
             <div class="b-example-divider"></div>
+
             <% Empleado_Presentador empPre = (Empleado_Presentador) session.getAttribute("empPre");%>
+            <form method="post" action="Empleado_Control" class="w-100 p-4" >
 
-            <form method="post" action="Empleado_Control" class="w-100 p-4" id="form">
 
-                <% Object[] f = empPre.getFil();%>
+                <div class="d-grid gap-2 mb-4">
+                    <input class="btn btn-warning" type="submit" name="acc" value="Listar">
+                </div>
 
-                <h1>MANTENIMIENTO DE EMPLEADOS</h1><br>
-
-                <input class="form-control" type="text" name="cod" value="<%= f[0]%>" placeholder="Ingrese un codigo"/><br>
-                <input class="form-control" type="text" name="name" value="<%= f[1]%>" placeholder="Ingrese su nombre"/><br>
-                <input class="form-control" type="email" name="mail" value="<%= f[2]%>" placeholder="Ingrese su correo"/><br>
-                <input class="form-control" type="text" name="telf" value="<%= f[3]%>" placeholder="Ingrese su telefono"/><br>
-                <input class="form-control" type="text" name="usser" value="<%= f[4]%>" placeholder="Ingrese su usuario"/><br>
-                <input class="form-control" type="password" name="pass" value="<%= f[5]%>" placeholder="Ingrese una contraseña"/><br>
-
-                <input class="btn btn-info" type="submit" name="acc" value="Grabar">
-                <input class="btn btn-success" type="submit" name="acc" value="Actualizar">
-                <input class="btn btn-secondary" type="submit" name="acc" value="Buscar">
-                <input class="btn btn-warning" type="submit" name="acc" value="Listar">
-                <input class="btn btn-danger" type="submit" name="acc" value="Eliminar">
-                <input class="btn btn-primary" type="submit" name="acc" value="Limpiar">
-                <hr>
-                <h4><%= empPre.getMensaje()%></h4>
                 
                 <table class="table table-hover">
                     <thead>
@@ -174,7 +159,12 @@
                     </tbody>
                     <% }%>
                 </table>
+
             </form>
+
+               
+
+
         </main>
     </body>
 </html>

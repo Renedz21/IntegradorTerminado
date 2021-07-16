@@ -20,6 +20,7 @@ html {
   height: -webkit-fill-available;
 }
 
+
 main {
   display: flex;
   flex-wrap: nowrap;
@@ -32,7 +33,7 @@ main {
 
 .b-example-divider {
   flex-shrink: 0;
-  width: 1.5rem;
+  width: .9rem;
   height: 100vh;
   background-color: rgba(0, 0, 0, .1);
   border: solid rgba(0, 0, 0, .15);
@@ -50,6 +51,9 @@ main {
 
 .nav-flush .nav-link {
   border-radius: 0;
+}
+.side{
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
 }
 
 .btn-toggle {

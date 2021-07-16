@@ -8,22 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <title>Menu</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-        <link href="estilos.css" rel="stylesheet" type="text/css"/>
-        <link href="sidebar.css" rel="stylesheet" type="text/css"/>
-        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
-        <script src="sidebars.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <style>
             .bd-placeholder-img {
                 font-size: 1.125rem;
@@ -40,48 +31,171 @@
             }
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+        <link href="sidebars.css" rel="stylesheet" type="text/css"/>
+        <link href="estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+
+
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
 
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                    <span class="fs-4">Bienvenido, <%= fila[0]%></span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <form action="Empleado_Control" method="post">
-                            <button class="btn btn-link text-decoration-none" type="submit" name="acc" value="Entrar"><i class="bi me-2 bi-person-bounding-box"></i>Empleados</button>
-                        </form>
+
+            <div class="side flex-shrink-0 p-3" style="width: 230px;">
+                <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
+                    </span>
+                </p>
+                <ul class="list-unstyled ps-0">
+                    <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#home-collapse" aria-expanded="true">
+                            Empleados
+                        </button>
+                        <div class="collapse show" id="home-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                            Agregar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar">
+                                            Listar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar3">
+                                            Buscar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar4">
+                                            Actualizar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar5">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </li>
+                                <!--<li><a href="#" class="link-dark rounded">Buscar</a></li>
+                                <li><a href="#" class="link-dark rounded">Listar</a></li>-->
+                            </ul>
+                        </div>
                     </li>
-                    
-                    <li class="nav-item">
-                        <form action="Cliente_Control" method="post">
-                            <button class="btn btn-link text-decoration-none" type="submit" name="acc" value="Entrarl"><i class="bi me-2 bi-people-fill"></i>Clientes</button>
-                        </form>
+                    <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#dashboard-collapse" aria-expanded="false">
+                            Clientes
+                        </button>
+                        <div class="collapse" id="dashboard-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                            Agregar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar">
+                                            Listar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar3">
+                                            Buscar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar4">
+                                            Actualizar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar5">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <form action="Articulo_Control" method="post">
-                            <button class="btn btn-link text-decoration-none" type="submit" name="acc" value="Entrar2"><i class="bi me-2 bi-people-fill"></i>Articulos</button>
-                        </form>
+                    <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#orders-collapse" aria-expanded="false">
+                            Articulos
+                        </button>
+                        <div class="collapse" id="orders-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                            Agregar
+                                        </button>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar">
+                                            Listar
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-link" href="Inicio.jsp"><i class="bi me-2 bi-arrow-bar-left"></i>Volver al Inicio</a>
+                    <li class="border-top my-3"></li>
+                    <li class="mb-1">
+                        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                                data-bs-target="#account-collapse" aria-expanded="false">
+                            Ventas
+                        </button>
+                        <div class="collapse" id="account-collapse">
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li>
+                                    <form action="Empleado_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                            Ver ventas realizadas
+                                        </button>
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </div>
                     </li>
                 </ul>
             </div>
+            <script src="sidebars.js" type="text/javascript"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+            </script>
 
             <div class="b-example-divider"></div>
+
+
             <h1 style="color: gray; margin-top: 190px;" class="text-center p-4">
                 Seleccione la operacion a realizar el mantenimiento correspondiente
             </h1>
+
         </main>
-
-
-
-
     </body>
 </html>
