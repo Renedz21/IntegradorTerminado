@@ -5,74 +5,32 @@
  */
 package Controladores;
 
-import Negocio.Compra;
-import Negocio.Producto;
-import Persistencia.Compra_DAO;
-import Persistencia.Producto_DAO;
+import Negocio.ExportarPDF;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 /**
  *
  * @author Microsoft
  */
-@WebServlet(name = "Articulo_Control", urlPatterns = {"/Articulo_Control"})
-@MultipartConfig
-public class Articulo_Control extends HttpServlet {
-
-    //private Articulo_Presentador cliPer;
-    //private Articulo_Servicio cliSer;
-    Producto p = new Producto();
-    Producto_DAO pdao = new Producto_DAO();
+@WebServlet(name = "Controlador", urlPatterns = {"/Controlador"})
+public class Controlador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String accion = request.getParameter("acc");
-
-        if (accion.equalsIgnoreCase("Entrar1")) {
-            request.getRequestDispatcher("AgregarArticulo.jsp").forward(request, response);
-        }
-        if (accion.equalsIgnoreCase("Entrar2")) {
-            request.getRequestDispatcher("ListarArticulo.jsp").forward(request, response);
-        }
-
-        if (accion.equalsIgnoreCase("Grabar")) {
-            String nombre = request.getParameter("nombre");
-            Part foto = request.getPart("foto");
-            InputStream input = foto.getInputStream();
-            String texto = request.getParameter("info");
-            double precio = Double.parseDouble(request.getParameter("precio"));
-            int stock = Integer.parseInt(request.getParameter("stock"));
-            String icate = request.getParameter("cat");
-            p.setNombres(nombre);
-            p.setFoto(input);
-            p.setDescripcion(texto);
-            p.setPrecio(precio);
-            p.setStock(stock);
-            p.setIdCat(icate);
-            pdao.Agregar(p);
-            request.getRequestDispatcher("AgregarArticulo.jsp").forward(request, response);
-        }
-
-        if (accion.equalsIgnoreCase("Listar")) {
-            List<Producto> lista = pdao.listar();
-            request.setAttribute("lista", lista);
-            request.getRequestDispatcher("ListarArticulo.jsp").forward(request, response);
-        }
-
-        if (accion.equals("Traer")) {
-            
-        }
-
+        
+       
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

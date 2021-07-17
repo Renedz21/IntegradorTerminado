@@ -5,11 +5,15 @@
  */
 package Controladores;
 
+import Negocio.ExportarPDF;
 import Servicio.Empleado_Servicio;
 import Servicio.Empleado_Servicio_Imp;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +30,7 @@ public class Empleado_Control extends HttpServlet {
 
     private Empleado_Presentador empPre;
     private Empleado_Servicio empSer;
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -108,6 +113,18 @@ public class Empleado_Control extends HttpServlet {
             List lis = new ArrayList();
             lis.add(fila);
             empPre.setLista(lis);
+        }
+        
+         if (accion.equals("Exportar")) {
+            DateFormat da = new SimpleDateFormat("yyyy-MM-dd_HH_mm_ss");
+            String nomFile = da.format(new Date());
+            String var1 = "Content-Disposition";
+            String var2 = "attachment; filename=Lista_"+nomFile+".pdf";
+            response.setHeader(var1, var2);
+            ExportarPDF ex = new ExportarPDF(empSer.Listar());
+            ex.export(response);
+            request.getRequestDispatcher("ListarEmpleado.jsp").forward(request, response);
+            
         }
 
     }

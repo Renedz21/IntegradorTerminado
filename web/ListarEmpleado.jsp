@@ -185,11 +185,14 @@
             <div class="b-example-divider"></div>
 
             <% Empleado_Presentador empPre = (Empleado_Presentador) session.getAttribute("empPre");%>
+            
             <form method="post" action="Empleado_Control" class="w-100 p-4" >
 
                 <div class="formb">
                     <div class="d-grid gap-2 mb-4">
                         <input class="btn btn-warning" type="submit" name="acc" value="Listar">
+                        <input class="btn" type="submit" name="acc" value="Exportar"/>
+                        
                     </div>
 
                     <table class="table table-hover">
@@ -217,8 +220,11 @@
                         </tbody>
                         <% }%>
                     </table>
+                    
                 </div>
+                    
             </form>
+                    
         </main>
     </body>
 </html>
