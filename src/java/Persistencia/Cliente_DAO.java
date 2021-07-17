@@ -78,7 +78,7 @@ public class Cliente_DAO implements Serializable {
                 cliente = em.getReference(Cliente.class, id);
                 cliente.getIdcliente();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The cliente with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("El cliente con Id " + id + " no existe en la BD.", enfe);
             }
             em.remove(cliente);
             em.getTransaction().commit();

@@ -84,7 +84,7 @@ public class Empleado_DAO implements Serializable {
                 empleado = em.getReference(Empleado.class, id);
                 empleado.getCodigo();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("El empleado con id " + id + " no existe.", enfe);
             }
             em.remove(empleado);
             em.getTransaction().commit();

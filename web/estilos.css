@@ -10,6 +10,7 @@ body{
     background-size: cover;
     margin: 0;
     padding: 0;
+    
 }
 
 #alerta{
@@ -28,8 +29,6 @@ body{
 #buscar{
     margin-left: 12%;
 }
-
-
 
 #img1{
     float: right;
@@ -79,13 +78,25 @@ body{
     padding: 15px 25px;
     margin: auto;
     overflow-x: hidden;
-   
+    
 }
 
 .formb{
      padding: 55px;
      background-color: rgb(179, 179, 165);
      font-family: 'Indie Flower', cursive;
+}
+.formagre{
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.formba{
+    background-color: rgb(179, 179, 165);
+    padding: 5px 20px;
+    font-family: 'Indie Flower', cursive;
+    
 }
 
 .entrar{
@@ -308,6 +319,11 @@ body{
 
 #pay:hover{
     color: #B6433E;
+}
+
+.lab{
+    font-family: 'Indie Flower', cursive;
+    font-size: 27px;
 }
 
 

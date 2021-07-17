@@ -1,9 +1,3 @@
-<%-- 
-    Document   : AgregarArticulo
-    Created on : 16/07/2021, 02:58:45 PM
-    Author     : Microsoft
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,6 +26,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
@@ -40,8 +35,9 @@
 
             <div class="side flex-shrink-0 p-3" style="width: 230px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br></span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
@@ -187,6 +183,27 @@
             </script>
 
             <div class="b-example-divider"></div>
+
+
+            <form action="Articulo_Control" method="post" class="form" enctype="multipart/form-data">
+
+
+                <div class="formb">
+                    <h1>AGREGAR ARTICULOS</h1><br>
+
+                    <input class="form-control" type="text" name="nombre"  placeholder="Ingrese el nombre del producto"/><br>
+                    <input class="form-control" type="file" name="foto"  placeholder="Ingrese foto"/><br>
+                    <input class="form-control" type="text" name="info"  placeholder="Descripcion"/><br>
+                    <input class="form-control" type="number" name="precio" placeholder="Ingrese el precio"/><br>
+                    <input class="form-control" type="number" name="stock"  placeholder="Ingrese el stock"/><br>
+                    <input class="form-control" type="text" name="cat"  placeholder="Ingrese el ID de la categoria"/><br>
+
+                    <div class="d-grid gap-2">
+                        <input class="btn btn-info" type="submit" name="acc" value="Grabar">
+                    </div>
+                    
+                </div>
+            </form>
         </main>
     </body>
 </html>

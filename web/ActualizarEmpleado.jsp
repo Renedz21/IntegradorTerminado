@@ -27,6 +27,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
@@ -35,8 +36,9 @@
 
             <div class="side flex-shrink-0 p-3" style="width: 230px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br></span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
@@ -182,6 +184,29 @@
             </script>
 
             <div class="b-example-divider"></div>
+
+
+            <% Empleado_Presentador empPre = (Empleado_Presentador) session.getAttribute("empPre");%>
+            <form method="post" action="Empleado_Control" class="form" >
+                <% Object[] f = empPre.getFil();%>
+
+
+                <div class="formb">
+                    <h2>ACTUALIZAR DATOS DE EMPLEADO</h2><br>
+                    <input class="form-control" type="text" name="cod" value="<%= f[0]%>" placeholder="Codigo a actualizar"/><br>
+                    <input class="form-control" type="text" name="name" value="<%= f[1]%>" placeholder="Nombre a actualizar"/><br>
+                    <input class="form-control" type="email" name="mail" value="<%= f[2]%>" placeholder="Correo a actualizar"/><br>
+                    <input class="form-control" type="text" name="telf" value="<%= f[3]%>" placeholder="Telefono a actualizar"/><br>
+                    <input class="form-control" type="text" name="usser" value="<%= f[4]%>" placeholder="Usuario a actualizar"/><br>
+                    <input class="form-control" type="password" name="pass" value="<%= f[5]%>" placeholder="Contraseña a actualizar"/><br>
+
+                    <div class="d-grid gap-2 mb-4">
+                        <input class="btn btn-outline-warning" type="submit" name="acc" value="Actualizar">
+                    </div>
+                    <h4><%= empPre.getMensaje()%></h4><br>
+
+                </div>
+            </form>
         </main>
     </body>
 </html>

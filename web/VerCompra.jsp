@@ -1,5 +1,11 @@
-<%@page import="Controladores.Empleado_Presentador"%>
+<%-- 
+    Document   : VerCompra
+    Created on : 17/07/2021, 04:10:11 AM
+    Author     : Microsoft
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,24 +33,25 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
-
-
-            <div class="side flex-shrink-0 p-3" style="width: 230px;">
+            <div class="side flex-shrink-0 p-3" style="width: 330px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark"><span class="fs-5 fw-semibold">
+                            Bienvenido, <%= fila[0]%><br>
+                        </span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#home-collapse" aria-expanded="true">
+                                data-bs-target="#home-collapse" aria-expanded="false">
                             Empleados
                         </button>
-                        <div class="collapse show" id="home-collapse">
+                        <div class="collapse " id="home-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <form action="Empleado_Control" method="post">
@@ -108,7 +115,7 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar3">
                                             Buscar
                                         </button>
@@ -158,14 +165,14 @@
                     <li class="border-top my-3"></li>
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#account-collapse" aria-expanded="false">
+                                data-bs-target="#account-collapse" aria-expanded="true">
                             Ventas
                         </button>
-                        <div class="collapse" id="account-collapse">
+                        <div class="collapse show" id="account-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-                                    <form action="Empleado_Control" method="post">
-                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                    <form action="Articulo_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar4">
                                             Ver ventas realizadas
                                         </button>
                                     </form>
@@ -174,6 +181,11 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="border-top my-3"></li>
+                    <li>
+                        <a href="Inicio.jsp" class="nav-link text-dark"><i class="fas fa-chevron-left mr-3"></i> Volver</a>
+                    </li>
+
                 </ul>
             </div>
             <script src="sidebars.js" type="text/javascript"></script>
@@ -182,6 +194,38 @@
             </script>
 
             <div class="b-example-divider"></div>
+            
+            <form action="Articulo_Control" method="post" class="form" enctype="multipart/form-data">
+                <div class="formb">
+                    <div class="d-grid gap-2 mb-4">
+                        <input class="btn btn-warning" type="submit" name="acc" value="Traer">
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID COMPRA</th>
+                                <th scope="col">ID PAGO</th>
+                                <th scope="col">FECHA</th>
+                                <th scope="col">MONTO</th>
+                                <th scope="col">ESTADO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dat" items="${lista}">
+                            <tr>
+                                <td>${dat.getId()}</td>
+                                
+                                <td>${dat.getIdpago()}</td>
+                                <td>${dat.getFecha()}</td>
+                                <td>${dat.getMonto()}</td>
+                                <td>${dat.getEstado()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+            
         </main>
     </body>
 </html>

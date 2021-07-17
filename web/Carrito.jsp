@@ -66,8 +66,8 @@
                                     </td>
                                     <td>${car.getSubTotal()}</td>
                                     <td>
-                                        <input type="hidden" value="idp" >
-                                        <a href="Controlador?accion=Borrar">Eliminar</a>
+
+                                        <a href="Controlador_Producto?accion=Borrar&idp=${car.getIdProducto()}">Eliminar</a>
                                     </td>
                                 </tr>
                             </c:forEach>

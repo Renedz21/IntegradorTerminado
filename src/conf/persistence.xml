@@ -4,6 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Negocio.Cliente</class>
     <class>Negocio.Empleado</class>
+    <class>Negocio.Compras</class>
+    <class>Negocio.Pago_1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/basedatosproyectointegrador"/>

@@ -27,16 +27,16 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
-
-
             <div class="side flex-shrink-0 p-3" style="width: 230px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br></span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
@@ -182,6 +182,57 @@
             </script>
 
             <div class="b-example-divider"></div>
+
+            <% Empleado_Presentador empPre = (Empleado_Presentador) session.getAttribute("empPre");%>
+
+            <form action="Empleado_Control" method="post" class="form">
+                <div class="formb">
+                    <% Object[] f = empPre.getFil();%>
+                    <label class="lab">Ingrese el codigo a buscar: </label>
+                    <br>
+                    <input class="form-control" type="text" name="cod" value="<%= f[0]%>"/>
+                    <br>
+                    <div class="d-grid gap-2 mb-4">
+                        <input class="btn btn-outline-success" type="submit" name="acc" value="Buscar">
+
+                    </div>
+
+
+                    <br>
+                    <br>
+                    <div class="datos">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NOMRBE</th>
+                                    <th scope="col">CORREO</th>
+                                    <th scope="col">TELEFONO</th>
+                                    <th scope="col">USUARIO</th>
+                                    <th scope="col">CONTRASEÑA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%= f[1]%></td>
+                                    <td><%= f[2]%></td>
+                                    <td><%= f[3]%></td>
+                                    <td><%= f[4]%></td>
+                                    <td><%= f[5]%></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <br>
+                    <input class="btn btn-primary" type="submit" name="acc" value="Limpiar">
+
+                </div>
+
+
+            </form>
+
         </main>
     </body>
 </html>

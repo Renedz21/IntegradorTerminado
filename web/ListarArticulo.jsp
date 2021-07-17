@@ -1,15 +1,10 @@
-<%-- 
-    Document   : ListarArticulo
-    Created on : 16/07/2021, 02:59:17 PM
-    Author     : Microsoft
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu</title>
+        <title>Listar Articulo</title>
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sidebars/">
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -32,24 +27,23 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
-
-
             <div class="side flex-shrink-0 p-3" style="width: 230px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
-                </p>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br></span>
+                    </a></p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#home-collapse" aria-expanded="true">
+                                data-bs-target="#home-collapse" aria-expanded="false">
                             Empleados
                         </button>
-                        <div class="collapse show" id="home-collapse">
+                        <div class="collapse" id="home-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <form action="Empleado_Control" method="post">
@@ -138,10 +132,10 @@
                     </li>
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#orders-collapse" aria-expanded="false">
+                                data-bs-target="#orders-collapse" aria-expanded="true">
                             Articulos
                         </button>
-                        <div class="collapse" id="orders-collapse">
+                        <div class="collapse show" id="orders-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <form action="Articulo_Control" method="post">
@@ -185,8 +179,42 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
             </script>
-
             <div class="b-example-divider"></div>
+            <form action="Articulo_Control" method="post" class="form" enctype="multipart/form-data">
+                <div class="formb">
+                    <div class="d-grid gap-2 mb-4">
+                        <input class="btn btn-warning" type="submit" name="acc" value="Listar">
+                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">FOTO</th>
+                                <th scope="col">DESCRIPCION</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">STOCK</th>
+                                <th scope="col">CATEGORIA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="dato" items="${lista}">
+                            <tr>
+                                <td>${dato.getId()}</td>
+                                <td>${dato.getNombres()}</td>
+                                <td>
+                                    <img src="Controlador_Img?id=${dato.getId()}" width="100" height="100">
+                                </td>
+                                <td>${dato.getDescripcion()}</td>
+                                <td>${dato.getPrecio()}</td>
+                                <td>${dato.getStock()}</td>
+                                <td>${dato.getIdCat()}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
         </main>
     </body>
 </html>

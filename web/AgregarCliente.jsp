@@ -1,9 +1,4 @@
-<%-- 
-    Document   : AgregarCliente
-    Created on : 16/07/2021, 02:57:53 PM
-    Author     : Microsoft
---%>
-
+<%@page import="Controladores.Cliente_Presentador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,16 +27,19 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
 
-
-            <div class="side flex-shrink-0 p-3" style="width: 230px;">
+            <div class="side flex-shrink-0 p-3" style="width: 330px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">
+                            Bienvenido, <%= fila[0]%><br>
+                        </span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
@@ -187,6 +185,28 @@
             </script>
 
             <div class="b-example-divider"></div>
+
+            <% Cliente_Presentador cliPer = (Cliente_Presentador) session.getAttribute("cliPer");%>
+            <form method="post" action="Cliente_Control" class="formagre" >
+                <div class="formba">
+                    <% Object[] f = cliPer.getFil();%>
+                    <h2 class="text-center">AGREGAR CLIENTE</h2><br>
+                    
+                    <input class="form-control" type="text" name="id" value="<%= f[0]%>" placeholder="Ingrese el ID del cliente"/><br>
+                    <input class="form-control" type="text" name="dni" value="<%= f[1]%>" placeholder="Ingrese su DNI"/><br>
+                    <input class="form-control" type="text" name="name" value="<%= f[2]%>" placeholder="Ingrese su nombre"/><br>
+                    <input class="form-control" type="text" name="dire" value="<%= f[3]%>" placeholder="Ingrese su direccion"/><br>
+                    <input class="form-control" type="text" name="telf" value="<%= f[4]%>" placeholder="Ingrese su telefono"/><br>
+                    <input class="form-control" type="email" name="mail" value="<%= f[5]%>" placeholder="Ingrese su correo"/><br>
+                    <input class="form-control" type="text" name="usser" value="<%= f[6]%>" placeholder="Ingrese su usuario"/><br>
+                    <input class="form-control" type="password" name="pass" value="<%= f[7]%>" placeholder="Ingrese una contraseña"/><br>
+
+                    <div class="d-grid gap-2 mb-4">
+                        <input class="btn btn-info" type="submit" name="acc" value="Grabar">
+                    </div>
+                    <h4><%= cliPer.getMensaje()%></h4>
+                </div>
+            </form>
         </main>
     </body>
 </html>

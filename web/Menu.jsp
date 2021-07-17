@@ -26,16 +26,17 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
-
-
-            <div class="side flex-shrink-0 p-3" style="width: 230px;">
+            <div class="side flex-shrink-0 p-3" style="width: 330px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark"><span class="fs-5 fw-semibold">
+                            Bienvenido, <%= fila[0]%><br>
+                        </span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
@@ -107,7 +108,7 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar3">
                                             Buscar
                                         </button>
@@ -163,8 +164,8 @@
                         <div class="collapse" id="account-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-                                    <form action="Empleado_Control" method="post">
-                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
+                                    <form action="Articulo_Control" method="post">
+                                        <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar4">
                                             Ver ventas realizadas
                                         </button>
                                     </form>
@@ -173,6 +174,11 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="border-top my-3"></li>
+                    <li>
+                        <a href="Inicio.jsp" class="nav-link text-dark"><i class="fas fa-chevron-left mr-3"></i> Volver</a>
+                    </li>
+
                 </ul>
             </div>
             <script src="sidebars.js" type="text/javascript"></script>

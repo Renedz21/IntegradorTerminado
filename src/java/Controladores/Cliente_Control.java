@@ -52,12 +52,12 @@ public class Cliente_Control extends HttpServlet {
                 request.getSession().setAttribute("cliPer", cliPer);
                 response.sendRedirect("ActualizarCliente.jsp");
                 break;
-            /*case "Entrar5":
+            case "Entrar5":
                 cliPer = new Cliente_Presentador();
                 cliSer = new Cliente_Servicio_Imp();
                 request.getSession().setAttribute("cliPer", cliPer);
-                response.sendRedirect("EliminarCliente.jsp");
-                break;*/
+                response.sendRedirect("BorrarCliente.jsp");
+                break;
         }
 
 
@@ -71,6 +71,7 @@ public class Cliente_Control extends HttpServlet {
             String usser = request.getParameter("usser");
             String pass = request.getParameter("pass");
             cliPer.setMensaje(cliSer.Grabar(id, dni, nombre, direccion, telefono, email, usser, pass));
+            response.sendRedirect("AgregarCliente.jsp");
         }
 
         if (accion.equals("Actualizar")) {
@@ -79,26 +80,31 @@ public class Cliente_Control extends HttpServlet {
             String nombre = request.getParameter("name");
             String direccion = request.getParameter("dire");
             String telefono = request.getParameter("telf");
-            String email = request.getParameter("email");
+            String email = request.getParameter("mail");
             String usser = request.getParameter("usser");
             String pass = request.getParameter("pass");
             cliPer.setMensaje(cliSer.Actualizar(id, dni, nombre, direccion, telefono, email, usser, pass));
+            response.sendRedirect("ActualizarCliente.jsp");
+            
         }
         if (accion.equals("Eliminar")) {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("cod"));
             cliPer.setMensaje(cliSer.Eliminar(id));
+            response.sendRedirect("BorrarCliente.jsp");
         }
         if (accion.equals("Buscar")) {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("cod"));
             Object[] fila = cliSer.Buscar(id);
             if (fila != null) {
                 cliPer.setFil(fila);
             } else {
                 cliPer.setMensaje("El cliente no existe");
             }
+            response.sendRedirect("BuscarCliente.jsp");
         }
         if (accion.equals("Listar")) {
             cliPer.setLista(cliSer.Listar());
+            response.sendRedirect("ListarCliente.jsp");
         }
         if (accion.equals("Limpiar")) {
             cliPer.setMensaje("");

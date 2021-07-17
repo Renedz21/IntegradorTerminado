@@ -57,7 +57,7 @@ public class Cliente_Servicio_Imp implements Cliente_Servicio {
         Cliente cli = new Cliente(id);
         try {
             cliDao.destroy(id);
-            msg = "Los datos del cliente fueron actualizados correctamente";
+            msg = "Datos del cliente eliminados exitosamente";
         } catch (Exception e) {
             msg = e.getMessage();
         }

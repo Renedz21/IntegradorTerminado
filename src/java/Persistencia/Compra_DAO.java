@@ -10,6 +10,8 @@ import Negocio.Compra;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -53,6 +55,28 @@ public class Compra_DAO {
             
         }catch(Exception e){}
         return r;
+    }
+    
+    public List listar() {
+        List<Compra> compra = new ArrayList();
+        String sql = "select * from compras";
+        try {
+            con = cn.getConexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Compra c = new Compra();
+                c.setId(rs.getInt(1));
+                c.setIdpago(rs.getInt(2));
+                c.setFecha(rs.getString(3));
+                c.setMonto(rs.getDouble(4));
+                c.setEstado(rs.getString(5));
+                compra.add(c);
+            }
+
+        } catch (Exception e) {
+        }
+        return compra;
     }
     
 }

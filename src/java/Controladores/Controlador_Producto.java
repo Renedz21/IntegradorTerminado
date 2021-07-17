@@ -119,10 +119,11 @@ public class Controlador_Producto extends HttpServlet {
                     for (int i = 0; i < listaCarrito.size(); i++) {
                         if (listaCarrito.get(i).getIdProducto() == idproducto) {
                             listaCarrito.remove(i);
+                           
                         }
                     }
                 }
-                request.getRequestDispatcher("Controlador_Producto?accion=Carrito").forward(request, response);
+                 request.getRequestDispatcher("Carrito.jsp").forward(request, response);
 
                 break;
             case "ActualizarCantidad":

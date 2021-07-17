@@ -57,58 +57,50 @@ public class Empleado_Control extends HttpServlet {
                 request.getSession().setAttribute("empPre", empPre);
                 response.sendRedirect("ActualizarEmpleado.jsp");
                 break;
-            /*case "Entrar5":
+            case "Entrar5":
                 empPre = new Empleado_Presentador();
                 empSer = new Empleado_Servicio_Imp();
                 request.getSession().setAttribute("empPre", empPre);
                 response.sendRedirect("EliminarEmpleado.jsp");
-                break;*/
-        }
-
-        switch (accion) {
-            case "Grabar":
-                String codigo = request.getParameter("cod");
-                String nombre = request.getParameter("name");
-                String correo = request.getParameter("mail");
-                String telefono = request.getParameter("telf");
-                String usuario = request.getParameter("usser");
-                String contraseña = request.getParameter("pass");
-                empPre.setMensaje(empSer.Grabar(codigo, nombre, correo, telefono, usuario, contraseña));
-                response.sendRedirect("AgregarEmpleado.jsp");
                 break;
         }
 
-        if (accion.equals("Grabar")) {
+        String codigo = request.getParameter("cod");
+        String nombre = request.getParameter("name");
+        String correo = request.getParameter("mail");
+        String telefono = request.getParameter("telf");
+        String usuario = request.getParameter("usser");
+        String contraseña = request.getParameter("pass");
 
+        switch (accion) {
+            case "Grabar":
+                empPre.setMensaje(empSer.Grabar(codigo, nombre, correo, telefono, usuario, contraseña));
+                response.sendRedirect("AgregarEmpleado.jsp");
+                break;
+            case "Eliminar":
+                empPre.setMensaje(empSer.Eliminar(codigo));
+                response.sendRedirect("EliminarEmpleado.jsp");
+                break;
+            case "Actualizar":
+                empPre.setMensaje(empSer.Actualizar(codigo, nombre, correo, telefono, usuario, contraseña));
+                response.sendRedirect("ActualizarEmpleado.jsp");
+                break;
+            case "Listar":
+                empPre.setLista(empSer.Listar());
+                response.sendRedirect("ListarEmpleado.jsp");
+                break;
+            case "Buscar":
+                Object[] fila = empSer.Buscar(codigo);
+                if (fila != null) {
+                    empPre.setFil(fila);
+
+                } else {
+                    empPre.setMensaje("El empleado no existe");
+                }
+                response.sendRedirect("BuscarEmpleado.jsp");
+                break;
         }
 
-        if (accion.equals("Actualizar")) {
-            String codigo = request.getParameter("cod");
-            String nombre = request.getParameter("name");
-            String correo = request.getParameter("mail");
-            String telefono = request.getParameter("telf");
-            String usuario = request.getParameter("usser");
-            String contraseña = request.getParameter("pass");
-            empPre.setMensaje(empSer.Actualizar(codigo, nombre, correo, telefono, usuario, contraseña));
-        }
-        if (accion.equals("Eliminar")) {
-            String codigo = request.getParameter("cod");
-            empPre.setMensaje(empSer.Eliminar(codigo));
-        }
-        if (accion.equals("Buscar")) {
-            String codigo = request.getParameter("cod");
-            Object[] fila = empSer.Buscar(codigo);
-            if (fila != null) {
-                empPre.setFil(fila);
-            } else {
-                empPre.setMensaje("El empleado no existe");
-            }
-        }
-        if (accion.equals("Listar")) {
-            empPre.setLista(empSer.Listar());
-            response.sendRedirect("ListarEmpleado.jsp");
-
-        }
         if (accion.equals("Limpiar")) {
             empPre.setMensaje("");
             Object[] fila = {"", "", "", "", "", ""};

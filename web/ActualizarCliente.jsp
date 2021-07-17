@@ -4,6 +4,7 @@
     Author     : Microsoft
 --%>
 
+<%@page import="Controladores.Cliente_Presentador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,55 +33,57 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
 
 
-            <div class="side flex-shrink-0 p-3" style="width: 230px;">
+            <div class="side flex-shrink-0 p-3" style="width: 330px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br></span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#home-collapse" aria-expanded="true">
+                                data-bs-target="#home-collapse" aria-expanded="false">
                             Empleados
                         </button>
-                        <div class="collapse show" id="home-collapse">
+                        <div class="collapse" id="home-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
                                             Agregar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar">
                                             Listar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar3">
                                             Buscar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar4">
                                             Actualizar
                                         </button>
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar5">
                                             Eliminar
                                         </button>
@@ -93,10 +96,10 @@
                     </li>
                     <li class="mb-1">
                         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#dashboard-collapse" aria-expanded="false">
+                                data-bs-target="#dashboard-collapse" aria-expanded="true">
                             Clientes
                         </button>
-                        <div class="collapse" id="dashboard-collapse">
+                        <div class="collapse show" id="dashboard-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
                                     <form action="Cliente_Control" method="post">
@@ -113,7 +116,7 @@
                                     </form>
                                 </li>
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar3">
                                             Buscar
                                         </button>
@@ -169,12 +172,13 @@
                         <div class="collapse" id="account-collapse">
                             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                 <li>
-                                    <form action="Empleado_Control" method="post">
+                                    <form action="Cliente_Control" method="post">
                                         <button class="entrar btn btn-link link-dark text-decoration-none rounded" type="submit" name="acc" value="Entrar2">
                                             Ver ventas realizadas
                                         </button>
                                     </form>
                                 </li>
+
 
                             </ul>
                         </div>
@@ -187,6 +191,30 @@
             </script>
 
             <div class="b-example-divider"></div>
+
+            <% Cliente_Presentador cliPer = (Cliente_Presentador) session.getAttribute("cliPer");%>
+            <form method="post" action="Cliente_Control" class="formagre" >
+                <% Object[] f = cliPer.getFil();%>
+
+
+                <div class="formba">
+                    <h2>ACTUALIZAR DATOS DEL CLIENTE</h2><br>
+                    <input class="form-control" type="text" name="id" value="<%= f[0]%>" placeholder="Ingrese el ID a actualizar"/><br>
+                    <input class="form-control" type="text" name="dni" value="<%= f[1]%>" placeholder="Nuevo DNI"/><br>
+                    <input class="form-control" type="text" name="name" value="<%= f[2]%>" placeholder="Nuevo nombre"/><br>
+                    <input class="form-control" type="text" name="dire" value="<%= f[3]%>" placeholder="Nueva direccion"/><br>
+                    <input class="form-control" type="text" name="telf" value="<%= f[4]%>" placeholder="Nuev telefono"/><br>
+                    <input class="form-control" type="email" name="mail" value="<%= f[5]%>" placeholder="Nuevo correo"/><br>
+                    <input class="form-control" type="text" name="usser" value="<%= f[6]%>" placeholder="Nuevo usuario"/><br>
+                    <input class="form-control" type="password" name="pass" value="<%= f[7]%>" placeholder="Nuevo contraseña"/><br>
+
+                    <div class="d-grid gap-2 mb-4">
+                        <input class="btn btn-outline-warning" type="submit" name="acc" value="Actualizar">
+                    </div>
+                    <h4><%= cliPer.getMensaje()%></h4><br>
+
+                </div>
+            </form>
         </main>
     </body>
 </html>

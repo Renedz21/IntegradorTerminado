@@ -25,18 +25,19 @@
             }
         </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        
+        <script src="https://kit.fontawesome.com/7a636b3642.js" crossorigin="anonymous"></script>
         <link href="sidebars.css" rel="stylesheet" type="text/css"/>
         <link href="estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <main>
             <%Object[] fila = (Object[]) session.getAttribute("fila");%>
-
-
             <div class="side flex-shrink-0 p-3" style="width: 330px;">
                 <p class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                    <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br>
-                    </span>
+                    <a href="Menu.jsp" class="text-decoration-none text-dark">
+                        <span class="fs-5 fw-semibold">Bienvenido, <%= fila[0]%><br></span>
+                    </a>
                 </p>
                 <ul class="list-unstyled ps-0">
                     <li class="mb-1">
@@ -176,17 +177,19 @@
                     </li>
                 </ul>
             </div>
-            <script src="sidebars.js" type="text/javascript"></script>
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
             </script>
+            <script src="sidebars.js" type="text/javascript"></script>
 
             <div class="b-example-divider"></div>
-
+            
+            
             <% Empleado_Presentador empPre = (Empleado_Presentador) session.getAttribute("empPre");%>
-
-            <form method="post" action="Empleado_Control"  class="form">
-
+            
+            <form method="post" action="Empleado_Control" class="form">
+                
                 <div class="formb">
                     <h2>AGREGAR EMPLEADO</h2><br>
                     <% Object[] f = empPre.getFil();%>
@@ -204,10 +207,7 @@
                     <br>
                     <h4><%= empPre.getMensaje()%></h4>
                 </div>
-
             </form>
-
-
         </main>
     </body>
 </html>

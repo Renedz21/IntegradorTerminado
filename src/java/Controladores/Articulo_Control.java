@@ -5,7 +5,9 @@
  */
 package Controladores;
 
+import Negocio.Compra;
 import Negocio.Producto;
+import Persistencia.Compra_DAO;
 import Persistencia.Producto_DAO;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +33,7 @@ public class Articulo_Control extends HttpServlet {
     //private Articulo_Servicio cliSer;
     Producto p = new Producto();
     Producto_DAO pdao = new Producto_DAO();
+    Compra_DAO cdao = new Compra_DAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -41,6 +44,9 @@ public class Articulo_Control extends HttpServlet {
         }
         if (accion.equalsIgnoreCase("Entrar2")) {
             request.getRequestDispatcher("ListarArticulo.jsp").forward(request, response);
+        }
+        if (accion.equalsIgnoreCase("Entrar4")) {
+            request.getRequestDispatcher("VerCompra.jsp").forward(request, response);
         }
 
         if (accion.equalsIgnoreCase("Grabar")) {
@@ -58,16 +64,20 @@ public class Articulo_Control extends HttpServlet {
             p.setStock(stock);
             p.setIdCat(icate);
             pdao.Agregar(p);
-            //request.getRequestDispatcher("Articulo_Control?accion=Mantenimiento_Articulos").forward(request, response);
+            request.getRequestDispatcher("AgregarArticulo.jsp").forward(request, response);
         }
         
         if (accion.equalsIgnoreCase("Listar")) {
             List<Producto>lista = pdao.listar();
             request.setAttribute("lista", lista);
-            request.getRequestDispatcher("Mantenimiento_Articulos.jsp").forward(request, response);
+            request.getRequestDispatcher("ListarArticulo.jsp").forward(request, response);
         }
         
-         response.sendRedirect("Mantenimiento_Articulos.jsp");
+         if (accion.equals("Traer")) {
+            List<Compra>list = cdao.listar();
+            request.setAttribute("list", list);
+            request.getRequestDispatcher("VerCompra.jsp").forward(request, response);
+        }
 
     }
 
